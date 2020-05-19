@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StaffDetailAttendenceDataSet" targetNamespace="http://tempuri.org/StaffDetailAttendenceDataSet.xsd" xmlns:mstns="http://tempuri.org/StaffDetailAttendenceDataSet.xsd" xmlns="http://tempuri.org/StaffDetailAttendenceDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OMSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OAS.Properties.Settings.GlobalReference.Default.OMSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StaffTableAdapter" GeneratorDataComponentClassName="StaffTableAdapter" Name="Staff" UserDataComponentName="StaffTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="OMSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Staff.FNname + ' ' + Staff.Mname + ' ' + Staff.Lname AS 'Staff Name', Stafftype.name, Staff.Staffid
+FROM            Staff INNER JOIN
+                         Stafftype ON Staff.StaffTypeid = Stafftype.stafftypeId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Staffid" DataSetColumn="Staffid" />
+              <Mapping SourceColumn="Staff Name" DataSetColumn="Staff Name" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StaffDetailAttendenceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="StaffDetailAttendenceDataSet" msprop:Generator_UserDSName="StaffDetailAttendenceDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Staff" msprop:Generator_TableClassName="StaffDataTable" msprop:Generator_TableVarName="tableStaff" msprop:Generator_RowChangedName="StaffRowChanged" msprop:Generator_TablePropName="Staff" msprop:Generator_RowDeletingName="StaffRowDeleting" msprop:Generator_RowChangingName="StaffRowChanging" msprop:Generator_RowEvHandlerName="StaffRowChangeEventHandler" msprop:Generator_RowDeletedName="StaffRowDeleted" msprop:Generator_RowClassName="StaffRow" msprop:Generator_UserTableName="Staff" msprop:Generator_RowEvArgName="StaffRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Staffid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnStaffid" msprop:Generator_ColumnPropNameInRow="Staffid" msprop:Generator_ColumnPropNameInTable="StaffidColumn" msprop:Generator_UserColumnName="Staffid" type="xs:int" />
+              <xs:element name="Staff_x0020_Name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStaff_Name" msprop:Generator_ColumnPropNameInRow="Staff_Name" msprop:Generator_ColumnPropNameInTable="Staff_NameColumn" msprop:Generator_UserColumnName="Staff Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="92" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Staff" />
+      <xs:field xpath="mstns:Staffid" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LeaveTakenReportDataSet" targetNamespace="http://tempuri.org/LeaveTakenReportDataSet.xsd" xmlns:mstns="http://tempuri.org/LeaveTakenReportDataSet.xsd" xmlns="http://tempuri.org/LeaveTakenReportDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OMSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OAS.Properties.Settings.GlobalReference.Default.OMSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LeaveTakenTableAdapter" GeneratorDataComponentClassName="LeaveTakenTableAdapter" Name="LeaveTaken" UserDataComponentName="LeaveTakenTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="OMSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        a.Taken_Id, c.FNname + ' ' + c.Mname + ' ' + c.Lname AS 'Staff Name', b.L_Name AS 'Leave Name', a.F_Date AS 'Leave Start', a.T_Date AS 'Leave End', DATEDIFF(day, a.F_Date, a.T_Date) 
+                         + 1 AS 'Total Leave Taken'
+FROM            LeaveTaken AS a INNER JOIN
+                         Staff AS c ON a.StaffNo = c.Staffid INNER JOIN
+                         LeaveType AS b ON a.LType_Id = b.Ltype_Id
+ORDER BY a.Taken_Id DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Taken_Id" DataSetColumn="Taken_Id" />
+              <Mapping SourceColumn="Staff Name" DataSetColumn="Staff Name" />
+              <Mapping SourceColumn="Leave Name" DataSetColumn="Leave Name" />
+              <Mapping SourceColumn="Leave Start" DataSetColumn="Leave Start" />
+              <Mapping SourceColumn="Leave End" DataSetColumn="Leave End" />
+              <Mapping SourceColumn="Total Leave Taken" DataSetColumn="Total Leave Taken" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LeaveTakenReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="LeaveTakenReportDataSet" msprop:Generator_UserDSName="LeaveTakenReportDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LeaveTaken" msprop:Generator_TableClassName="LeaveTakenDataTable" msprop:Generator_TableVarName="tableLeaveTaken" msprop:Generator_RowChangedName="LeaveTakenRowChanged" msprop:Generator_TablePropName="LeaveTaken" msprop:Generator_RowDeletingName="LeaveTakenRowDeleting" msprop:Generator_RowChangingName="LeaveTakenRowChanging" msprop:Generator_RowEvHandlerName="LeaveTakenRowChangeEventHandler" msprop:Generator_RowDeletedName="LeaveTakenRowDeleted" msprop:Generator_RowClassName="LeaveTakenRow" msprop:Generator_UserTableName="LeaveTaken" msprop:Generator_RowEvArgName="LeaveTakenRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Taken_Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnTaken_Id" msprop:Generator_ColumnPropNameInRow="Taken_Id" msprop:Generator_ColumnPropNameInTable="Taken_IdColumn" msprop:Generator_UserColumnName="Taken_Id" type="xs:int" />
+              <xs:element name="Staff_x0020_Name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStaff_Name" msprop:Generator_ColumnPropNameInRow="Staff_Name" msprop:Generator_ColumnPropNameInTable="Staff_NameColumn" msprop:Generator_UserColumnName="Staff Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="92" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Leave_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnLeave_Name" msprop:Generator_ColumnPropNameInRow="Leave_Name" msprop:Generator_ColumnPropNameInTable="Leave_NameColumn" msprop:Generator_UserColumnName="Leave Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Leave_x0020_Start" msprop:Generator_ColumnVarNameInTable="columnLeave_Start" msprop:Generator_ColumnPropNameInRow="Leave_Start" msprop:Generator_ColumnPropNameInTable="Leave_StartColumn" msprop:Generator_UserColumnName="Leave Start" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Leave_x0020_End" msprop:Generator_ColumnVarNameInTable="columnLeave_End" msprop:Generator_ColumnPropNameInRow="Leave_End" msprop:Generator_ColumnPropNameInTable="Leave_EndColumn" msprop:Generator_UserColumnName="Leave End" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Total_x0020_Leave_x0020_Taken" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal_Leave_Taken" msprop:Generator_ColumnPropNameInRow="Total_Leave_Taken" msprop:Generator_ColumnPropNameInTable="Total_Leave_TakenColumn" msprop:Generator_UserColumnName="Total Leave Taken" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:LeaveTaken" />
+      <xs:field xpath="mstns:Taken_Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

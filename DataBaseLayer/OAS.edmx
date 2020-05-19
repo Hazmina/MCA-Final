@@ -1,0 +1,861 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountantLogin">
+          <Key>
+            <PropertyRef Name="AccId" />
+          </Key>
+          <Property Name="AccId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Staffid" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="LastSeen" Type="datetime" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AllowanceType">
+          <Key>
+            <PropertyRef Name="All_Id" />
+          </Key>
+          <Property Name="All_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="All_Type" Type="varchar" MaxLength="20" />
+          <Property Name="All_Perc" Type="float" />
+          <Property Name="Salary" Type="float" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="Att_Id" />
+          </Key>
+          <Property Name="Att_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RFID_Id" Type="varchar" MaxLength="20" />
+          <Property Name="Att_In" Type="datetime" />
+          <Property Name="Att_Out" Type="datetime" />
+          <Property Name="Att_Date" Type="date" />
+        </EntityType>
+        <EntityType Name="Bonofied">
+          <Key>
+            <PropertyRef Name="BonofieId" />
+          </Key>
+          <Property Name="BonofieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gr_No" Type="varchar" MaxLength="10" />
+          <Property Name="Class_Id" Type="int" />
+          <Property Name="Date_Of_Generation" Type="date" />
+        </EntityType>
+        <EntityType Name="Charges">
+          <Key>
+            <PropertyRef Name="chargesId" />
+          </Key>
+          <Property Name="chargesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ch_name" Type="varchar" MaxLength="30" />
+          <Property Name="amount" Type="float" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City_Id" />
+          </Key>
+          <Property Name="City_Id" Type="int" Nullable="false" />
+          <Property Name="Country_Id" Type="int" />
+          <Property Name="State_Id" Type="int" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ClassDetail">
+          <Key>
+            <PropertyRef Name="ClassId" />
+          </Key>
+          <Property Name="ClassId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CName" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_Id" />
+          </Key>
+          <Property Name="Country_Id" Type="int" Nullable="false" />
+          <Property Name="Country_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="DivId" />
+          </Key>
+          <Property Name="DivId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Class_id" Type="int" />
+          <Property Name="DivName" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Expense">
+          <Key>
+            <PropertyRef Name="ExpId" />
+          </Key>
+          <Property Name="ExpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExptypeId" Type="int" />
+          <Property Name="InvoiceNo" Type="varchar" MaxLength="20" />
+          <Property Name="PaidTo" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="PaidDate" Type="date" />
+          <Property Name="EntryDate" Type="date" />
+        </EntityType>
+        <EntityType Name="ExpenseType">
+          <Key>
+            <PropertyRef Name="ExpTypeId" />
+          </Key>
+          <Property Name="ExpTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpType" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="FeeCollection">
+          <Key>
+            <PropertyRef Name="FeeCollectionId" />
+          </Key>
+          <Property Name="FeeCollectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Studid" Type="int" />
+          <Property Name="Classid" Type="int" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="EntryDate" Type="date" />
+          <Property Name="LastMonth" Type="int" />
+          <Property Name="LastMonthSpel" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="FeeConcession">
+          <Key>
+            <PropertyRef Name="ConcesId" />
+          </Key>
+          <Property Name="ConcesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cast" Type="varchar" MaxLength="20" />
+          <Property Name="Per" Type="float" />
+        </EntityType>
+        <EntityType Name="FeeDetail">
+          <Key>
+            <PropertyRef Name="FeeDetailid" />
+          </Key>
+          <Property Name="FeeDetailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Classid" Type="int" />
+          <Property Name="FeeType" Type="varchar" MaxLength="30" />
+          <Property Name="Amount" Type="float" />
+        </EntityType>
+        <EntityType Name="LeaveTaken">
+          <Key>
+            <PropertyRef Name="Taken_Id" />
+          </Key>
+          <Property Name="Taken_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffNo" Type="int" />
+          <Property Name="LType_Id" Type="int" />
+          <Property Name="F_Date" Type="date" />
+          <Property Name="T_Date" Type="date" />
+        </EntityType>
+        <EntityType Name="LeaveType">
+          <Key>
+            <PropertyRef Name="Ltype_Id" />
+          </Key>
+          <Property Name="Ltype_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="L_Name" Type="varchar" MaxLength="30" />
+          <Property Name="No_Leave" Type="int" />
+        </EntityType>
+        <EntityType Name="ReciptDetail">
+          <Key>
+            <PropertyRef Name="Reciept_id" />
+          </Key>
+          <Property Name="Reciept_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecieptFor" Type="varchar" MaxLength="50" />
+          <Property Name="RecieptFrom" Type="varchar" MaxLength="50" />
+          <Property Name="Amt" Type="int" />
+          <Property Name="Rec_Date" Type="date" />
+          <Property Name="P_Mode" Type="varchar" MaxLength="30" />
+          <Property Name="Reference" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SalaryDetail">
+          <Key>
+            <PropertyRef Name="Sal_Id" />
+          </Key>
+          <Property Name="Sal_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Staff_Id" Type="int" />
+          <Property Name="BS" Type="float" />
+          <Property Name="NetSalary" Type="float" />
+          <Property Name="DateFrom" Type="date" />
+          <Property Name="DateTo" Type="date" />
+          <Property Name="EntryDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Staffid" />
+          </Key>
+          <Property Name="Staffid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffTypeid" Type="int" />
+          <Property Name="FNname" Type="varchar" MaxLength="30" />
+          <Property Name="Mname" Type="varchar" MaxLength="30" />
+          <Property Name="Lname" Type="varchar" MaxLength="30" />
+          <Property Name="Cno1" Type="varchar" MaxLength="11" />
+          <Property Name="Cno2" Type="varchar" MaxLength="11" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="Cityid" Type="int" />
+          <Property Name="Dob" Type="date" />
+          <Property Name="Doj" Type="date" />
+          <Property Name="Gender" Type="varchar" MaxLength="8" />
+          <Property Name="Cast" Type="varchar" MaxLength="15" />
+          <Property Name="Nationality" Type="varchar" MaxLength="7" />
+          <Property Name="Religion" Type="varchar" MaxLength="8" />
+          <Property Name="Spouse" Type="varchar" MaxLength="50" />
+          <Property Name="AdhaarNo" Type="varchar" MaxLength="12" />
+          <Property Name="BankName" Type="varchar" MaxLength="20" />
+          <Property Name="IFSCcode" Type="varchar" MaxLength="11" />
+          <Property Name="BankAccountno" Type="varchar" MaxLength="14" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Salary" Type="float" />
+          <Property Name="Rfid" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="yearsOfExperience" Type="varchar" MaxLength="30" />
+          <Property Name="Qualification" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="State_Id" />
+          </Key>
+          <Property Name="State_Id" Type="int" Nullable="false" />
+          <Property Name="Country_Id" Type="int" />
+          <Property Name="State_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Stud_Id" />
+          </Key>
+          <Property Name="Stud_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="General_Regis_No" Type="varchar" MaxLength="10" />
+          <Property Name="Date_Of_Addmission" Type="date" />
+          <Property Name="Student_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Father_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Mother_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Father_Occupation" Type="varchar" MaxLength="30" />
+          <Property Name="Mother_Occupation" Type="varchar" MaxLength="30" />
+          <Property Name="Guardian_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Cast" Type="varchar" MaxLength="20" />
+          <Property Name="Gender" Type="varchar" MaxLength="7" />
+          <Property Name="Date_Of_Birth" Type="date" />
+          <Property Name="Religion" Type="varchar" MaxLength="15" />
+          <Property Name="Nationality" Type="varchar" MaxLength="20" />
+          <Property Name="Classid" Type="int" />
+          <Property Name="Divid" Type="int" />
+          <Property Name="Previous_School_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Phone_No" Type="varchar" MaxLength="10" />
+          <Property Name="HomePhoneNo" Type="varchar" MaxLength="10" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="City_Id" Type="int" />
+          <Property Name="State_Id" Type="int" />
+          <Property Name="Country_Id" Type="int" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="AadhaarNo" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TransactionAllowance">
+          <Key>
+            <PropertyRef Name="All_TransId" />
+          </Key>
+          <Property Name="All_TransId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="All_Id" Type="int" />
+          <Property Name="Staff_Id" Type="int" />
+          <Property Name="F_Date" Type="date" />
+          <Property Name="T_Date" Type="date" />
+          <Property Name="Entry_Date" Type="date" />
+          <Property Name="Amt" Type="float" />
+        </EntityType>
+        <EntityContainer Name="OMSModelStoreContainer">
+          <EntitySet Name="AccountantLogin" EntityType="Self.AccountantLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AllowanceType" EntityType="Self.AllowanceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bonofied" EntityType="Self.Bonofied" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Charges" EntityType="Self.Charges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassDetail" EntityType="Self.ClassDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expense" EntityType="Self.Expense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpenseType" EntityType="Self.ExpenseType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeeCollection" EntityType="Self.FeeCollection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeeConcession" EntityType="Self.FeeConcession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeeDetail" EntityType="Self.FeeDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveTaken" EntityType="Self.LeaveTaken" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveType" EntityType="Self.LeaveType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReciptDetail" EntityType="Self.ReciptDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryDetail" EntityType="Self.SalaryDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionAllowance" EntityType="Self.TransactionAllowance" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ExpenseType">
+          <Key>
+            <PropertyRef Name="ExpTypeId" />
+          </Key>
+          <Property Name="ExpTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="OASEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ExpenseTypes" EntityType="Self.ExpenseType" />
+          <EntitySet Name="Expenses" EntityType="OMSModel.Expense" />
+          <EntitySet Name="ClassDetails" EntityType="OMSModel.ClassDetail" />
+          <EntitySet Name="Divisions" EntityType="OMSModel.Division" />
+          <EntitySet Name="Students" EntityType="OMSModel.Student" />
+          <EntitySet Name="Cities" EntityType="OMSModel.City" />
+          <EntitySet Name="Countries" EntityType="OMSModel.Country" />
+          <EntitySet Name="States" EntityType="OMSModel.State" />
+          <EntitySet Name="Bonofieds" EntityType="OMSModel.Bonofied" />
+          <EntitySet Name="FeeDetails" EntityType="OMSModel.FeeDetail" />
+          <EntitySet Name="FeeCollections" EntityType="OMSModel.FeeCollection" />
+          <EntitySet Name="FeeConcessions" EntityType="OMSModel.FeeConcession" />
+          <EntitySet Name="Attendances" EntityType="OMSModel.Attendance" />
+          <EntitySet Name="LeaveTakens" EntityType="OMSModel.LeaveTaken" />
+          <EntitySet Name="LeaveTypes" EntityType="OMSModel.LeaveType" />
+          <EntitySet Name="Staffs" EntityType="OMSModel.Staff" />
+          <EntitySet Name="AllowanceTypes" EntityType="OMSModel.AllowanceType" />
+          <EntitySet Name="SalaryDetails" EntityType="OMSModel.SalaryDetail" />
+          <EntitySet Name="TransactionAllowances" EntityType="OMSModel.TransactionAllowance" />
+          <EntitySet Name="Charges" EntityType="OMSModel.Charge" />
+          <EntitySet Name="ReciptDetails" EntityType="OMSModel.ReciptDetail" />
+          <EntitySet Name="AccountantLogins" EntityType="OMSModel.AccountantLogin" />
+        </EntityContainer>
+        <EntityType Name="Expense">
+          <Key>
+            <PropertyRef Name="ExpId" />
+          </Key>
+          <Property Name="ExpId" Type="Int32" Nullable="false" />
+          <Property Name="ExptypeId" Type="Int32" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PaidTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PaidDate" Type="DateTime" Precision="0" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="ClassDetail">
+          <Key>
+            <PropertyRef Name="ClassId" />
+          </Key>
+          <Property Name="ClassId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="DivId" />
+          </Key>
+          <Property Name="DivId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Class_id" Type="Int32" />
+          <Property Name="DivName" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Stud_Id" />
+          </Key>
+          <Property Name="Stud_Id" Type="Int32" Nullable="false" />
+          <Property Name="General_Regis_No" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Of_Addmission" Type="DateTime" Precision="0" />
+          <Property Name="Student_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Father_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mother_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Father_Occupation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Mother_Occupation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Guardian_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cast" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Of_Birth" Type="DateTime" Precision="0" />
+          <Property Name="Religion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Classid" Type="Int32" />
+          <Property Name="Divid" Type="Int32" />
+          <Property Name="Previous_School_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_No" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HomePhoneNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="City_Id" Type="Int32" />
+          <Property Name="State_Id" Type="Int32" />
+          <Property Name="Country_Id" Type="Int32" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="AadhaarNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City_Id" />
+          </Key>
+          <Property Name="City_Id" Type="Int32" Nullable="false" />
+          <Property Name="Country_Id" Type="Int32" />
+          <Property Name="State_Id" Type="Int32" />
+          <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_Id" />
+          </Key>
+          <Property Name="Country_Id" Type="Int32" Nullable="false" />
+          <Property Name="Country_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="State_Id" />
+          </Key>
+          <Property Name="State_Id" Type="Int32" Nullable="false" />
+          <Property Name="Country_Id" Type="Int32" />
+          <Property Name="State_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Bonofied">
+          <Key>
+            <PropertyRef Name="BonofieId" />
+          </Key>
+          <Property Name="BonofieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gr_No" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Class_Id" Type="Int32" />
+          <Property Name="Date_Of_Generation" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="FeeDetail">
+          <Key>
+            <PropertyRef Name="FeeDetailid" />
+          </Key>
+          <Property Name="FeeDetailid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Classid" Type="Int32" />
+          <Property Name="FeeType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Double" />
+        </EntityType>
+        <EntityType Name="FeeCollection">
+          <Key>
+            <PropertyRef Name="FeeCollectionId" />
+          </Key>
+          <Property Name="FeeCollectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Studid" Type="Int32" />
+          <Property Name="Classid" Type="Int32" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+          <Property Name="LastMonth" Type="Int32" />
+          <Property Name="LastMonthSpel" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FeeConcession">
+          <Key>
+            <PropertyRef Name="ConcesId" />
+          </Key>
+          <Property Name="ConcesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cast" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Per" Type="Double" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="Att_Id" />
+          </Key>
+          <Property Name="Att_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RFID_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Att_In" Type="DateTime" Precision="3" />
+          <Property Name="Att_Out" Type="DateTime" Precision="3" />
+          <Property Name="Att_Date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="LeaveTaken">
+          <Key>
+            <PropertyRef Name="Taken_Id" />
+          </Key>
+          <Property Name="Taken_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffNo" Type="Int32" />
+          <Property Name="LType_Id" Type="Int32" />
+          <Property Name="F_Date" Type="DateTime" Precision="0" />
+          <Property Name="T_Date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="LeaveType">
+          <Key>
+            <PropertyRef Name="Ltype_Id" />
+          </Key>
+          <Property Name="Ltype_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="L_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="No_Leave" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Staffid" />
+          </Key>
+          <Property Name="Staffid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffTypeid" Type="Int32" />
+          <Property Name="FNname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Mname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Lname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Cno1" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Cno2" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cityid" Type="Int32" />
+          <Property Name="Dob" Type="DateTime" Precision="0" />
+          <Property Name="Doj" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Cast" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Spouse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdhaarNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="BankName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IFSCcode" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccountno" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Salary" Type="Double" />
+          <Property Name="Rfid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yearsOfExperience" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Qualification" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllowanceType">
+          <Key>
+            <PropertyRef Name="All_Id" />
+          </Key>
+          <Property Name="All_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="All_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="All_Perc" Type="Double" />
+          <Property Name="Salary" Type="Double" />
+        </EntityType>
+        <EntityType Name="SalaryDetail">
+          <Key>
+            <PropertyRef Name="Sal_Id" />
+          </Key>
+          <Property Name="Sal_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Staff_Id" Type="Int32" />
+          <Property Name="BS" Type="Double" />
+          <Property Name="NetSalary" Type="Double" />
+          <Property Name="DateFrom" Type="DateTime" Precision="0" />
+          <Property Name="DateTo" Type="DateTime" Precision="0" />
+          <Property Name="EntryDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TransactionAllowance">
+          <Key>
+            <PropertyRef Name="All_TransId" />
+          </Key>
+          <Property Name="All_TransId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="All_Id" Type="Int32" />
+          <Property Name="Staff_Id" Type="Int32" />
+          <Property Name="F_Date" Type="DateTime" Precision="0" />
+          <Property Name="T_Date" Type="DateTime" Precision="0" />
+          <Property Name="Entry_Date" Type="DateTime" Precision="0" />
+          <Property Name="Amt" Type="Double" />
+        </EntityType>
+        <EntityType Name="Charge">
+          <Key>
+            <PropertyRef Name="chargesId" />
+          </Key>
+          <Property Name="chargesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ch_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="Double" />
+        </EntityType>
+        <EntityType Name="ReciptDetail">
+          <Key>
+            <PropertyRef Name="Reciept_id" />
+          </Key>
+          <Property Name="Reciept_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecieptFor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecieptFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amt" Type="Int32" />
+          <Property Name="Rec_Date" Type="DateTime" Precision="0" />
+          <Property Name="P_Mode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AccountantLogin">
+          <Key>
+            <PropertyRef Name="AccId" />
+          </Key>
+          <Property Name="AccId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Staffid" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastSeen" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OMSModelStoreContainer" CdmEntityContainer="OASEntities">
+          <EntitySetMapping Name="ExpenseTypes">
+            <EntityTypeMapping TypeName="OMSModel.ExpenseType">
+              <MappingFragment StoreEntitySet="ExpenseType">
+                <ScalarProperty Name="ExpTypeId" ColumnName="ExpTypeId" />
+                <ScalarProperty Name="ExpType" ColumnName="ExpType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expenses">
+            <EntityTypeMapping TypeName="OMSModel.Expense">
+              <MappingFragment StoreEntitySet="Expense">
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PaidTo" ColumnName="PaidTo" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="ExptypeId" ColumnName="ExptypeId" />
+                <ScalarProperty Name="ExpId" ColumnName="ExpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassDetails">
+            <EntityTypeMapping TypeName="OMSModel.ClassDetail">
+              <MappingFragment StoreEntitySet="ClassDetail">
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Divisions">
+            <EntityTypeMapping TypeName="OMSModel.Division">
+              <MappingFragment StoreEntitySet="Division">
+                <ScalarProperty Name="DivName" ColumnName="DivName" />
+                <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+                <ScalarProperty Name="DivId" ColumnName="DivId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="OMSModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="AadhaarNo" ColumnName="AadhaarNo" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+                <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+                <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="HomePhoneNo" ColumnName="HomePhoneNo" />
+                <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+                <ScalarProperty Name="Previous_School_Name" ColumnName="Previous_School_Name" />
+                <ScalarProperty Name="Divid" ColumnName="Divid" />
+                <ScalarProperty Name="Classid" ColumnName="Classid" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Cast" ColumnName="Cast" />
+                <ScalarProperty Name="Guardian_Name" ColumnName="Guardian_Name" />
+                <ScalarProperty Name="Mother_Occupation" ColumnName="Mother_Occupation" />
+                <ScalarProperty Name="Father_Occupation" ColumnName="Father_Occupation" />
+                <ScalarProperty Name="Mother_Name" ColumnName="Mother_Name" />
+                <ScalarProperty Name="Father_Name" ColumnName="Father_Name" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="Date_Of_Addmission" ColumnName="Date_Of_Addmission" />
+                <ScalarProperty Name="General_Regis_No" ColumnName="General_Regis_No" />
+                <ScalarProperty Name="Stud_Id" ColumnName="Stud_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="OMSModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+                <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="OMSModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="OMSModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="State_Name" ColumnName="State_Name" />
+                <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+                <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bonofieds">
+            <EntityTypeMapping TypeName="OMSModel.Bonofied">
+              <MappingFragment StoreEntitySet="Bonofied">
+                <ScalarProperty Name="Date_Of_Generation" ColumnName="Date_Of_Generation" />
+                <ScalarProperty Name="Class_Id" ColumnName="Class_Id" />
+                <ScalarProperty Name="Gr_No" ColumnName="Gr_No" />
+                <ScalarProperty Name="BonofieId" ColumnName="BonofieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeeDetails">
+            <EntityTypeMapping TypeName="OMSModel.FeeDetail">
+              <MappingFragment StoreEntitySet="FeeDetail">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="FeeType" ColumnName="FeeType" />
+                <ScalarProperty Name="Classid" ColumnName="Classid" />
+                <ScalarProperty Name="FeeDetailid" ColumnName="FeeDetailid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeeCollections">
+            <EntityTypeMapping TypeName="OMSModel.FeeCollection">
+              <MappingFragment StoreEntitySet="FeeCollection">
+                <ScalarProperty Name="LastMonthSpel" ColumnName="LastMonthSpel" />
+                <ScalarProperty Name="LastMonth" ColumnName="LastMonth" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Classid" ColumnName="Classid" />
+                <ScalarProperty Name="Studid" ColumnName="Studid" />
+                <ScalarProperty Name="FeeCollectionId" ColumnName="FeeCollectionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeeConcessions">
+            <EntityTypeMapping TypeName="OMSModel.FeeConcession">
+              <MappingFragment StoreEntitySet="FeeConcession">
+                <ScalarProperty Name="Per" ColumnName="Per" />
+                <ScalarProperty Name="Cast" ColumnName="Cast" />
+                <ScalarProperty Name="ConcesId" ColumnName="ConcesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="OMSModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="Att_Date" ColumnName="Att_Date" />
+                <ScalarProperty Name="Att_Out" ColumnName="Att_Out" />
+                <ScalarProperty Name="Att_In" ColumnName="Att_In" />
+                <ScalarProperty Name="RFID_Id" ColumnName="RFID_Id" />
+                <ScalarProperty Name="Att_Id" ColumnName="Att_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveTakens">
+            <EntityTypeMapping TypeName="OMSModel.LeaveTaken">
+              <MappingFragment StoreEntitySet="LeaveTaken">
+                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+                <ScalarProperty Name="F_Date" ColumnName="F_Date" />
+                <ScalarProperty Name="LType_Id" ColumnName="LType_Id" />
+                <ScalarProperty Name="StaffNo" ColumnName="StaffNo" />
+                <ScalarProperty Name="Taken_Id" ColumnName="Taken_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveTypes">
+            <EntityTypeMapping TypeName="OMSModel.LeaveType">
+              <MappingFragment StoreEntitySet="LeaveType">
+                <ScalarProperty Name="No_Leave" ColumnName="No_Leave" />
+                <ScalarProperty Name="L_Name" ColumnName="L_Name" />
+                <ScalarProperty Name="Ltype_Id" ColumnName="Ltype_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="OMSModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="yearsOfExperience" ColumnName="yearsOfExperience" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Rfid" ColumnName="Rfid" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="BankAccountno" ColumnName="BankAccountno" />
+                <ScalarProperty Name="IFSCcode" ColumnName="IFSCcode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="AdhaarNo" ColumnName="AdhaarNo" />
+                <ScalarProperty Name="Spouse" ColumnName="Spouse" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Cast" ColumnName="Cast" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Doj" ColumnName="Doj" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Cityid" ColumnName="Cityid" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Cno2" ColumnName="Cno2" />
+                <ScalarProperty Name="Cno1" ColumnName="Cno1" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Mname" ColumnName="Mname" />
+                <ScalarProperty Name="FNname" ColumnName="FNname" />
+                <ScalarProperty Name="StaffTypeid" ColumnName="StaffTypeid" />
+                <ScalarProperty Name="Staffid" ColumnName="Staffid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllowanceTypes">
+            <EntityTypeMapping TypeName="OMSModel.AllowanceType">
+              <MappingFragment StoreEntitySet="AllowanceType">
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="All_Perc" ColumnName="All_Perc" />
+                <ScalarProperty Name="All_Type" ColumnName="All_Type" />
+                <ScalarProperty Name="All_Id" ColumnName="All_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryDetails">
+            <EntityTypeMapping TypeName="OMSModel.SalaryDetail">
+              <MappingFragment StoreEntitySet="SalaryDetail">
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="NetSalary" ColumnName="NetSalary" />
+                <ScalarProperty Name="BS" ColumnName="BS" />
+                <ScalarProperty Name="Staff_Id" ColumnName="Staff_Id" />
+                <ScalarProperty Name="Sal_Id" ColumnName="Sal_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionAllowances">
+            <EntityTypeMapping TypeName="OMSModel.TransactionAllowance">
+              <MappingFragment StoreEntitySet="TransactionAllowance">
+                <ScalarProperty Name="Amt" ColumnName="Amt" />
+                <ScalarProperty Name="Entry_Date" ColumnName="Entry_Date" />
+                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+                <ScalarProperty Name="F_Date" ColumnName="F_Date" />
+                <ScalarProperty Name="Staff_Id" ColumnName="Staff_Id" />
+                <ScalarProperty Name="All_Id" ColumnName="All_Id" />
+                <ScalarProperty Name="All_TransId" ColumnName="All_TransId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Charges">
+            <EntityTypeMapping TypeName="OMSModel.Charge">
+              <MappingFragment StoreEntitySet="Charges">
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="ch_name" ColumnName="ch_name" />
+                <ScalarProperty Name="chargesId" ColumnName="chargesId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReciptDetails">
+            <EntityTypeMapping TypeName="OMSModel.ReciptDetail">
+              <MappingFragment StoreEntitySet="ReciptDetail">
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="P_Mode" ColumnName="P_Mode" />
+                <ScalarProperty Name="Rec_Date" ColumnName="Rec_Date" />
+                <ScalarProperty Name="Amt" ColumnName="Amt" />
+                <ScalarProperty Name="RecieptFrom" ColumnName="RecieptFrom" />
+                <ScalarProperty Name="RecieptFor" ColumnName="RecieptFor" />
+                <ScalarProperty Name="Reciept_id" ColumnName="Reciept_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountantLogins">
+            <EntityTypeMapping TypeName="OMSModel.AccountantLogin">
+              <MappingFragment StoreEntitySet="AccountantLogin">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastSeen" ColumnName="LastSeen" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Staffid" ColumnName="Staffid" />
+                <ScalarProperty Name="AccId" ColumnName="AccId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SubjectAllocationDataSet" targetNamespace="http://tempuri.org/SubjectAllocationDataSet.xsd" xmlns:mstns="http://tempuri.org/SubjectAllocationDataSet.xsd" xmlns="http://tempuri.org/SubjectAllocationDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OMSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OAS.Properties.Settings.GlobalReference.Default.OMSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SubjectAllocationTableAdapter" GeneratorDataComponentClassName="SubjectAllocationTableAdapter" Name="SubjectAllocation" UserDataComponentName="SubjectAllocationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="OMSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        SubjectAllocation.Sub_alloc_Id, ClassDetail.CName, Division.DivName, SubjectDetail.Subject_name, Stafftype.name, Staff.FNname + ' ' + Staff.Mname + ' ' + Staff.Lname AS 'Staff Name'
+FROM            SubjectAllocation INNER JOIN
+                         ClassDetail ON SubjectAllocation.Classid = ClassDetail.ClassId INNER JOIN
+                         Division ON ClassDetail.ClassId = Division.Class_id INNER JOIN
+                         Staff ON SubjectAllocation.StaffId = Staff.Staffid INNER JOIN
+                         Stafftype ON Staff.StaffTypeid = Stafftype.stafftypeId INNER JOIN
+                         SubjectDetail ON ClassDetail.ClassId = SubjectDetail.ClassId</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Sub_alloc_Id" DataSetColumn="Sub_alloc_Id" />
+              <Mapping SourceColumn="CName" DataSetColumn="CName" />
+              <Mapping SourceColumn="DivName" DataSetColumn="DivName" />
+              <Mapping SourceColumn="Subject_name" DataSetColumn="Subject_name" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="Staff Name" DataSetColumn="Staff Name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SubjectAllocationDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SubjectAllocationDataSet" msprop:Generator_UserDSName="SubjectAllocationDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SubjectAllocation" msprop:Generator_TableClassName="SubjectAllocationDataTable" msprop:Generator_TableVarName="tableSubjectAllocation" msprop:Generator_RowChangedName="SubjectAllocationRowChanged" msprop:Generator_TablePropName="SubjectAllocation" msprop:Generator_RowDeletingName="SubjectAllocationRowDeleting" msprop:Generator_RowChangingName="SubjectAllocationRowChanging" msprop:Generator_RowEvHandlerName="SubjectAllocationRowChangeEventHandler" msprop:Generator_RowDeletedName="SubjectAllocationRowDeleted" msprop:Generator_RowClassName="SubjectAllocationRow" msprop:Generator_UserTableName="SubjectAllocation" msprop:Generator_RowEvArgName="SubjectAllocationRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Sub_alloc_Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnSub_alloc_Id" msprop:Generator_ColumnPropNameInRow="Sub_alloc_Id" msprop:Generator_ColumnPropNameInTable="Sub_alloc_IdColumn" msprop:Generator_UserColumnName="Sub_alloc_Id" type="xs:int" />
+              <xs:element name="CName" msprop:Generator_ColumnVarNameInTable="columnCName" msprop:Generator_ColumnPropNameInRow="CName" msprop:Generator_ColumnPropNameInTable="CNameColumn" msprop:Generator_UserColumnName="CName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DivName" msprop:Generator_ColumnVarNameInTable="columnDivName" msprop:Generator_ColumnPropNameInRow="DivName" msprop:Generator_ColumnPropNameInTable="DivNameColumn" msprop:Generator_UserColumnName="DivName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Subject_name" msprop:Generator_ColumnVarNameInTable="columnSubject_name" msprop:Generator_ColumnPropNameInRow="Subject_name" msprop:Generator_ColumnPropNameInTable="Subject_nameColumn" msprop:Generator_UserColumnName="Subject_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Staff_x0020_Name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStaff_Name" msprop:Generator_ColumnPropNameInRow="Staff_Name" msprop:Generator_ColumnPropNameInTable="Staff_NameColumn" msprop:Generator_UserColumnName="Staff Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="92" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SubjectAllocation" />
+      <xs:field xpath="mstns:Sub_alloc_Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

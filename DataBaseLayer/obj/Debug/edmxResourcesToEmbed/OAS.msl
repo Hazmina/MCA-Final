@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OMSModelStoreContainer" CdmEntityContainer="OASEntities">
+    <EntitySetMapping Name="ExpenseTypes">
+      <EntityTypeMapping TypeName="OMSModel.ExpenseType">
+        <MappingFragment StoreEntitySet="ExpenseType">
+          <ScalarProperty Name="ExpTypeId" ColumnName="ExpTypeId" />
+          <ScalarProperty Name="ExpType" ColumnName="ExpType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expenses">
+      <EntityTypeMapping TypeName="OMSModel.Expense">
+        <MappingFragment StoreEntitySet="Expense">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PaidTo" ColumnName="PaidTo" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="ExptypeId" ColumnName="ExptypeId" />
+          <ScalarProperty Name="ExpId" ColumnName="ExpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassDetails">
+      <EntityTypeMapping TypeName="OMSModel.ClassDetail">
+        <MappingFragment StoreEntitySet="ClassDetail">
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="OMSModel.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="DivName" ColumnName="DivName" />
+          <ScalarProperty Name="Class_id" ColumnName="Class_id" />
+          <ScalarProperty Name="DivId" ColumnName="DivId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="OMSModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="AadhaarNo" ColumnName="AadhaarNo" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+          <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="HomePhoneNo" ColumnName="HomePhoneNo" />
+          <ScalarProperty Name="Phone_No" ColumnName="Phone_No" />
+          <ScalarProperty Name="Previous_School_Name" ColumnName="Previous_School_Name" />
+          <ScalarProperty Name="Divid" ColumnName="Divid" />
+          <ScalarProperty Name="Classid" ColumnName="Classid" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Cast" ColumnName="Cast" />
+          <ScalarProperty Name="Guardian_Name" ColumnName="Guardian_Name" />
+          <ScalarProperty Name="Mother_Occupation" ColumnName="Mother_Occupation" />
+          <ScalarProperty Name="Father_Occupation" ColumnName="Father_Occupation" />
+          <ScalarProperty Name="Mother_Name" ColumnName="Mother_Name" />
+          <ScalarProperty Name="Father_Name" ColumnName="Father_Name" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+          <ScalarProperty Name="Date_Of_Addmission" ColumnName="Date_Of_Addmission" />
+          <ScalarProperty Name="General_Regis_No" ColumnName="General_Regis_No" />
+          <ScalarProperty Name="Stud_Id" ColumnName="Stud_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="OMSModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+          <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="OMSModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="OMSModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="State_Name" ColumnName="State_Name" />
+          <ScalarProperty Name="Country_Id" ColumnName="Country_Id" />
+          <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bonofieds">
+      <EntityTypeMapping TypeName="OMSModel.Bonofied">
+        <MappingFragment StoreEntitySet="Bonofied">
+          <ScalarProperty Name="Date_Of_Generation" ColumnName="Date_Of_Generation" />
+          <ScalarProperty Name="Class_Id" ColumnName="Class_Id" />
+          <ScalarProperty Name="Gr_No" ColumnName="Gr_No" />
+          <ScalarProperty Name="BonofieId" ColumnName="BonofieId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeeDetails">
+      <EntityTypeMapping TypeName="OMSModel.FeeDetail">
+        <MappingFragment StoreEntitySet="FeeDetail">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="FeeType" ColumnName="FeeType" />
+          <ScalarProperty Name="Classid" ColumnName="Classid" />
+          <ScalarProperty Name="FeeDetailid" ColumnName="FeeDetailid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeeCollections">
+      <EntityTypeMapping TypeName="OMSModel.FeeCollection">
+        <MappingFragment StoreEntitySet="FeeCollection">
+          <ScalarProperty Name="LastMonthSpel" ColumnName="LastMonthSpel" />
+          <ScalarProperty Name="LastMonth" ColumnName="LastMonth" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Classid" ColumnName="Classid" />
+          <ScalarProperty Name="Studid" ColumnName="Studid" />
+          <ScalarProperty Name="FeeCollectionId" ColumnName="FeeCollectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeeConcessions">
+      <EntityTypeMapping TypeName="OMSModel.FeeConcession">
+        <MappingFragment StoreEntitySet="FeeConcession">
+          <ScalarProperty Name="Per" ColumnName="Per" />
+          <ScalarProperty Name="Cast" ColumnName="Cast" />
+          <ScalarProperty Name="ConcesId" ColumnName="ConcesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="OMSModel.Attendance">
+        <MappingFragment StoreEntitySet="Attendance">
+          <ScalarProperty Name="Att_Date" ColumnName="Att_Date" />
+          <ScalarProperty Name="Att_Out" ColumnName="Att_Out" />
+          <ScalarProperty Name="Att_In" ColumnName="Att_In" />
+          <ScalarProperty Name="RFID_Id" ColumnName="RFID_Id" />
+          <ScalarProperty Name="Att_Id" ColumnName="Att_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveTakens">
+      <EntityTypeMapping TypeName="OMSModel.LeaveTaken">
+        <MappingFragment StoreEntitySet="LeaveTaken">
+          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+          <ScalarProperty Name="F_Date" ColumnName="F_Date" />
+          <ScalarProperty Name="LType_Id" ColumnName="LType_Id" />
+          <ScalarProperty Name="StaffNo" ColumnName="StaffNo" />
+          <ScalarProperty Name="Taken_Id" ColumnName="Taken_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveTypes">
+      <EntityTypeMapping TypeName="OMSModel.LeaveType">
+        <MappingFragment StoreEntitySet="LeaveType">
+          <ScalarProperty Name="No_Leave" ColumnName="No_Leave" />
+          <ScalarProperty Name="L_Name" ColumnName="L_Name" />
+          <ScalarProperty Name="Ltype_Id" ColumnName="Ltype_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="OMSModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="yearsOfExperience" ColumnName="yearsOfExperience" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Rfid" ColumnName="Rfid" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="BankAccountno" ColumnName="BankAccountno" />
+          <ScalarProperty Name="IFSCcode" ColumnName="IFSCcode" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="AdhaarNo" ColumnName="AdhaarNo" />
+          <ScalarProperty Name="Spouse" ColumnName="Spouse" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Cast" ColumnName="Cast" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Doj" ColumnName="Doj" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Cityid" ColumnName="Cityid" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Cno2" ColumnName="Cno2" />
+          <ScalarProperty Name="Cno1" ColumnName="Cno1" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Mname" ColumnName="Mname" />
+          <ScalarProperty Name="FNname" ColumnName="FNname" />
+          <ScalarProperty Name="StaffTypeid" ColumnName="StaffTypeid" />
+          <ScalarProperty Name="Staffid" ColumnName="Staffid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllowanceTypes">
+      <EntityTypeMapping TypeName="OMSModel.AllowanceType">
+        <MappingFragment StoreEntitySet="AllowanceType">
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="All_Perc" ColumnName="All_Perc" />
+          <ScalarProperty Name="All_Type" ColumnName="All_Type" />
+          <ScalarProperty Name="All_Id" ColumnName="All_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalaryDetails">
+      <EntityTypeMapping TypeName="OMSModel.SalaryDetail">
+        <MappingFragment StoreEntitySet="SalaryDetail">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="NetSalary" ColumnName="NetSalary" />
+          <ScalarProperty Name="BS" ColumnName="BS" />
+          <ScalarProperty Name="Staff_Id" ColumnName="Staff_Id" />
+          <ScalarProperty Name="Sal_Id" ColumnName="Sal_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionAllowances">
+      <EntityTypeMapping TypeName="OMSModel.TransactionAllowance">
+        <MappingFragment StoreEntitySet="TransactionAllowance">
+          <ScalarProperty Name="Amt" ColumnName="Amt" />
+          <ScalarProperty Name="Entry_Date" ColumnName="Entry_Date" />
+          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+          <ScalarProperty Name="F_Date" ColumnName="F_Date" />
+          <ScalarProperty Name="Staff_Id" ColumnName="Staff_Id" />
+          <ScalarProperty Name="All_Id" ColumnName="All_Id" />
+          <ScalarProperty Name="All_TransId" ColumnName="All_TransId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Charges">
+      <EntityTypeMapping TypeName="OMSModel.Charge">
+        <MappingFragment StoreEntitySet="Charges">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="ch_name" ColumnName="ch_name" />
+          <ScalarProperty Name="chargesId" ColumnName="chargesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReciptDetails">
+      <EntityTypeMapping TypeName="OMSModel.ReciptDetail">
+        <MappingFragment StoreEntitySet="ReciptDetail">
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="P_Mode" ColumnName="P_Mode" />
+          <ScalarProperty Name="Rec_Date" ColumnName="Rec_Date" />
+          <ScalarProperty Name="Amt" ColumnName="Amt" />
+          <ScalarProperty Name="RecieptFrom" ColumnName="RecieptFrom" />
+          <ScalarProperty Name="RecieptFor" ColumnName="RecieptFor" />
+          <ScalarProperty Name="Reciept_id" ColumnName="Reciept_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountantLogins">
+      <EntityTypeMapping TypeName="OMSModel.AccountantLogin">
+        <MappingFragment StoreEntitySet="AccountantLogin">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastSeen" ColumnName="LastSeen" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Staffid" ColumnName="Staffid" />
+          <ScalarProperty Name="AccId" ColumnName="AccId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

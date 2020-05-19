@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ExpenseType">
+    <Key>
+      <PropertyRef Name="ExpTypeId" />
+    </Key>
+    <Property Name="ExpTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExpType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="OASEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ExpenseTypes" EntityType="Self.ExpenseType" />
+    <EntitySet Name="Expenses" EntityType="OMSModel.Expense" />
+    <EntitySet Name="ClassDetails" EntityType="OMSModel.ClassDetail" />
+    <EntitySet Name="Divisions" EntityType="OMSModel.Division" />
+    <EntitySet Name="Students" EntityType="OMSModel.Student" />
+    <EntitySet Name="Cities" EntityType="OMSModel.City" />
+    <EntitySet Name="Countries" EntityType="OMSModel.Country" />
+    <EntitySet Name="States" EntityType="OMSModel.State" />
+    <EntitySet Name="Bonofieds" EntityType="OMSModel.Bonofied" />
+    <EntitySet Name="FeeDetails" EntityType="OMSModel.FeeDetail" />
+    <EntitySet Name="FeeCollections" EntityType="OMSModel.FeeCollection" />
+    <EntitySet Name="FeeConcessions" EntityType="OMSModel.FeeConcession" />
+    <EntitySet Name="Attendances" EntityType="OMSModel.Attendance" />
+    <EntitySet Name="LeaveTakens" EntityType="OMSModel.LeaveTaken" />
+    <EntitySet Name="LeaveTypes" EntityType="OMSModel.LeaveType" />
+    <EntitySet Name="Staffs" EntityType="OMSModel.Staff" />
+    <EntitySet Name="AllowanceTypes" EntityType="OMSModel.AllowanceType" />
+    <EntitySet Name="SalaryDetails" EntityType="OMSModel.SalaryDetail" />
+    <EntitySet Name="TransactionAllowances" EntityType="OMSModel.TransactionAllowance" />
+    <EntitySet Name="Charges" EntityType="OMSModel.Charge" />
+    <EntitySet Name="ReciptDetails" EntityType="OMSModel.ReciptDetail" />
+    <EntitySet Name="AccountantLogins" EntityType="OMSModel.AccountantLogin" />
+  </EntityContainer>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="ExpId" />
+    </Key>
+    <Property Name="ExpId" Type="Int32" Nullable="false" />
+    <Property Name="ExptypeId" Type="Int32" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PaidTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PaidDate" Type="DateTime" Precision="0" />
+    <Property Name="EntryDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="ClassDetail">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="DivId" />
+    </Key>
+    <Property Name="DivId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Class_id" Type="Int32" />
+    <Property Name="DivName" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Stud_Id" />
+    </Key>
+    <Property Name="Stud_Id" Type="Int32" Nullable="false" />
+    <Property Name="General_Regis_No" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Of_Addmission" Type="DateTime" Precision="0" />
+    <Property Name="Student_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Father_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mother_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Father_Occupation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Mother_Occupation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Guardian_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cast" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="Date_Of_Birth" Type="DateTime" Precision="0" />
+    <Property Name="Religion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Nationality" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="Classid" Type="Int32" />
+    <Property Name="Divid" Type="Int32" />
+    <Property Name="Previous_School_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone_No" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="HomePhoneNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="City_Id" Type="Int32" />
+    <Property Name="State_Id" Type="Int32" />
+    <Property Name="Country_Id" Type="Int32" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="AadhaarNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="City_Id" />
+    </Key>
+    <Property Name="City_Id" Type="Int32" Nullable="false" />
+    <Property Name="Country_Id" Type="Int32" />
+    <Property Name="State_Id" Type="Int32" />
+    <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Country_Id" />
+    </Key>
+    <Property Name="Country_Id" Type="Int32" Nullable="false" />
+    <Property Name="Country_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="State_Id" />
+    </Key>
+    <Property Name="State_Id" Type="Int32" Nullable="false" />
+    <Property Name="Country_Id" Type="Int32" />
+    <Property Name="State_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Bonofied">
+    <Key>
+      <PropertyRef Name="BonofieId" />
+    </Key>
+    <Property Name="BonofieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gr_No" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Class_Id" Type="Int32" />
+    <Property Name="Date_Of_Generation" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="FeeDetail">
+    <Key>
+      <PropertyRef Name="FeeDetailid" />
+    </Key>
+    <Property Name="FeeDetailid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Classid" Type="Int32" />
+    <Property Name="FeeType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Double" />
+  </EntityType>
+  <EntityType Name="FeeCollection">
+    <Key>
+      <PropertyRef Name="FeeCollectionId" />
+    </Key>
+    <Property Name="FeeCollectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Studid" Type="Int32" />
+    <Property Name="Classid" Type="Int32" />
+    <Property Name="Amount" Type="Double" />
+    <Property Name="EntryDate" Type="DateTime" Precision="0" />
+    <Property Name="LastMonth" Type="Int32" />
+    <Property Name="LastMonthSpel" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FeeConcession">
+    <Key>
+      <PropertyRef Name="ConcesId" />
+    </Key>
+    <Property Name="ConcesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cast" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Per" Type="Double" />
+  </EntityType>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="Att_Id" />
+    </Key>
+    <Property Name="Att_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RFID_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Att_In" Type="DateTime" Precision="3" />
+    <Property Name="Att_Out" Type="DateTime" Precision="3" />
+    <Property Name="Att_Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="LeaveTaken">
+    <Key>
+      <PropertyRef Name="Taken_Id" />
+    </Key>
+    <Property Name="Taken_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffNo" Type="Int32" />
+    <Property Name="LType_Id" Type="Int32" />
+    <Property Name="F_Date" Type="DateTime" Precision="0" />
+    <Property Name="T_Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="LeaveType">
+    <Key>
+      <PropertyRef Name="Ltype_Id" />
+    </Key>
+    <Property Name="Ltype_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="L_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="No_Leave" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Staffid" />
+    </Key>
+    <Property Name="Staffid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffTypeid" Type="Int32" />
+    <Property Name="FNname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Mname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Lname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Cno1" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Cno2" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Cityid" Type="Int32" />
+    <Property Name="Dob" Type="DateTime" Precision="0" />
+    <Property Name="Doj" Type="DateTime" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Cast" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Nationality" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="Religion" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Spouse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdhaarNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IFSCcode" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="BankAccountno" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Salary" Type="Double" />
+    <Property Name="Rfid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="yearsOfExperience" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Qualification" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllowanceType">
+    <Key>
+      <PropertyRef Name="All_Id" />
+    </Key>
+    <Property Name="All_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="All_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="All_Perc" Type="Double" />
+    <Property Name="Salary" Type="Double" />
+  </EntityType>
+  <EntityType Name="SalaryDetail">
+    <Key>
+      <PropertyRef Name="Sal_Id" />
+    </Key>
+    <Property Name="Sal_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Staff_Id" Type="Int32" />
+    <Property Name="BS" Type="Double" />
+    <Property Name="NetSalary" Type="Double" />
+    <Property Name="DateFrom" Type="DateTime" Precision="0" />
+    <Property Name="DateTo" Type="DateTime" Precision="0" />
+    <Property Name="EntryDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="TransactionAllowance">
+    <Key>
+      <PropertyRef Name="All_TransId" />
+    </Key>
+    <Property Name="All_TransId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="All_Id" Type="Int32" />
+    <Property Name="Staff_Id" Type="Int32" />
+    <Property Name="F_Date" Type="DateTime" Precision="0" />
+    <Property Name="T_Date" Type="DateTime" Precision="0" />
+    <Property Name="Entry_Date" Type="DateTime" Precision="0" />
+    <Property Name="Amt" Type="Double" />
+  </EntityType>
+  <EntityType Name="Charge">
+    <Key>
+      <PropertyRef Name="chargesId" />
+    </Key>
+    <Property Name="chargesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ch_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Double" />
+  </EntityType>
+  <EntityType Name="ReciptDetail">
+    <Key>
+      <PropertyRef Name="Reciept_id" />
+    </Key>
+    <Property Name="Reciept_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RecieptFor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RecieptFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Amt" Type="Int32" />
+    <Property Name="Rec_Date" Type="DateTime" Precision="0" />
+    <Property Name="P_Mode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AccountantLogin">
+    <Key>
+      <PropertyRef Name="AccId" />
+    </Key>
+    <Property Name="AccId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Staffid" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastSeen" Type="DateTime" Precision="3" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

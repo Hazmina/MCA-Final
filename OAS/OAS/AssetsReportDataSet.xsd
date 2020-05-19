@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AssetsReportDataSet" targetNamespace="http://tempuri.org/AssetsReportDataSet.xsd" xmlns:mstns="http://tempuri.org/AssetsReportDataSet.xsd" xmlns="http://tempuri.org/AssetsReportDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OMSConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OAS.Properties.Settings.GlobalReference.Default.OMSConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AssetsTableAdapter" GeneratorDataComponentClassName="AssetsTableAdapter" Name="Assets" UserDataComponentName="AssetsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="OMSConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Assets.AssetId, Assets.Amount, Assets.PurchaseDate, Assets.Deadline, Assets.AssetsName, Assets.AssetCode, Category.CatName, Vendor.vname, Vendor.vaddress, Vendor.vcno
+FROM            Assets INNER JOIN
+                         Category ON Assets.CatId = Category.Catid INNER JOIN
+                         Vendor ON Assets.vendorId = Vendor.vid</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AssetId" DataSetColumn="AssetId" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="PurchaseDate" DataSetColumn="PurchaseDate" />
+              <Mapping SourceColumn="Deadline" DataSetColumn="Deadline" />
+              <Mapping SourceColumn="AssetsName" DataSetColumn="AssetsName" />
+              <Mapping SourceColumn="AssetCode" DataSetColumn="AssetCode" />
+              <Mapping SourceColumn="CatName" DataSetColumn="CatName" />
+              <Mapping SourceColumn="vname" DataSetColumn="vname" />
+              <Mapping SourceColumn="vaddress" DataSetColumn="vaddress" />
+              <Mapping SourceColumn="vcno" DataSetColumn="vcno" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AssetsReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="AssetsReportDataSet" msprop:Generator_UserDSName="AssetsReportDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Assets" msprop:Generator_TableClassName="AssetsDataTable" msprop:Generator_TableVarName="tableAssets" msprop:Generator_RowChangedName="AssetsRowChanged" msprop:Generator_TablePropName="Assets" msprop:Generator_RowDeletingName="AssetsRowDeleting" msprop:Generator_RowChangingName="AssetsRowChanging" msprop:Generator_RowEvHandlerName="AssetsRowChangeEventHandler" msprop:Generator_RowDeletedName="AssetsRowDeleted" msprop:Generator_RowClassName="AssetsRow" msprop:Generator_UserTableName="Assets" msprop:Generator_RowEvArgName="AssetsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AssetId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAssetId" msprop:Generator_ColumnPropNameInRow="AssetId" msprop:Generator_ColumnPropNameInTable="AssetIdColumn" msprop:Generator_UserColumnName="AssetId" type="xs:int" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:double" minOccurs="0" />
+              <xs:element name="PurchaseDate" msprop:Generator_ColumnVarNameInTable="columnPurchaseDate" msprop:Generator_ColumnPropNameInRow="PurchaseDate" msprop:Generator_ColumnPropNameInTable="PurchaseDateColumn" msprop:Generator_UserColumnName="PurchaseDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Deadline" msprop:Generator_ColumnVarNameInTable="columnDeadline" msprop:Generator_ColumnPropNameInRow="Deadline" msprop:Generator_ColumnPropNameInTable="DeadlineColumn" msprop:Generator_UserColumnName="Deadline" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AssetsName" msprop:Generator_ColumnVarNameInTable="columnAssetsName" msprop:Generator_ColumnPropNameInRow="AssetsName" msprop:Generator_ColumnPropNameInTable="AssetsNameColumn" msprop:Generator_UserColumnName="AssetsName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AssetCode" msprop:Generator_ColumnVarNameInTable="columnAssetCode" msprop:Generator_ColumnPropNameInRow="AssetCode" msprop:Generator_ColumnPropNameInTable="AssetCodeColumn" msprop:Generator_UserColumnName="AssetCode" type="xs:int" minOccurs="0" />
+              <xs:element name="CatName" msprop:Generator_ColumnVarNameInTable="columnCatName" msprop:Generator_ColumnPropNameInRow="CatName" msprop:Generator_ColumnPropNameInTable="CatNameColumn" msprop:Generator_UserColumnName="CatName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vname" msprop:Generator_ColumnVarNameInTable="columnvname" msprop:Generator_ColumnPropNameInRow="vname" msprop:Generator_ColumnPropNameInTable="vnameColumn" msprop:Generator_UserColumnName="vname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vaddress" msprop:Generator_ColumnVarNameInTable="columnvaddress" msprop:Generator_ColumnPropNameInRow="vaddress" msprop:Generator_ColumnPropNameInTable="vaddressColumn" msprop:Generator_UserColumnName="vaddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vcno" msprop:Generator_ColumnVarNameInTable="columnvcno" msprop:Generator_ColumnPropNameInRow="vcno" msprop:Generator_ColumnPropNameInTable="vcnoColumn" msprop:Generator_UserColumnName="vcno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Assets" />
+      <xs:field xpath="mstns:AssetId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

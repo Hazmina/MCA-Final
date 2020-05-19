@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountantLogin">
+    <Key>
+      <PropertyRef Name="AccId" />
+    </Key>
+    <Property Name="AccId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Staffid" Type="int" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="LastSeen" Type="datetime" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AllowanceType">
+    <Key>
+      <PropertyRef Name="All_Id" />
+    </Key>
+    <Property Name="All_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="All_Type" Type="varchar" MaxLength="20" />
+    <Property Name="All_Perc" Type="float" />
+    <Property Name="Salary" Type="float" />
+  </EntityType>
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="Att_Id" />
+    </Key>
+    <Property Name="Att_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RFID_Id" Type="varchar" MaxLength="20" />
+    <Property Name="Att_In" Type="datetime" />
+    <Property Name="Att_Out" Type="datetime" />
+    <Property Name="Att_Date" Type="date" />
+  </EntityType>
+  <EntityType Name="Bonofied">
+    <Key>
+      <PropertyRef Name="BonofieId" />
+    </Key>
+    <Property Name="BonofieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gr_No" Type="varchar" MaxLength="10" />
+    <Property Name="Class_Id" Type="int" />
+    <Property Name="Date_Of_Generation" Type="date" />
+  </EntityType>
+  <EntityType Name="Charges">
+    <Key>
+      <PropertyRef Name="chargesId" />
+    </Key>
+    <Property Name="chargesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ch_name" Type="varchar" MaxLength="30" />
+    <Property Name="amount" Type="float" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="City_Id" />
+    </Key>
+    <Property Name="City_Id" Type="int" Nullable="false" />
+    <Property Name="Country_Id" Type="int" />
+    <Property Name="State_Id" Type="int" />
+    <Property Name="City_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ClassDetail">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CName" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Country_Id" />
+    </Key>
+    <Property Name="Country_Id" Type="int" Nullable="false" />
+    <Property Name="Country_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="DivId" />
+    </Key>
+    <Property Name="DivId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Class_id" Type="int" />
+    <Property Name="DivName" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="ExpId" />
+    </Key>
+    <Property Name="ExpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExptypeId" Type="int" />
+    <Property Name="InvoiceNo" Type="varchar" MaxLength="20" />
+    <Property Name="PaidTo" Type="varchar" MaxLength="50" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="PaidDate" Type="date" />
+    <Property Name="EntryDate" Type="date" />
+  </EntityType>
+  <EntityType Name="ExpenseType">
+    <Key>
+      <PropertyRef Name="ExpTypeId" />
+    </Key>
+    <Property Name="ExpTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExpType" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="FeeCollection">
+    <Key>
+      <PropertyRef Name="FeeCollectionId" />
+    </Key>
+    <Property Name="FeeCollectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Studid" Type="int" />
+    <Property Name="Classid" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="EntryDate" Type="date" />
+    <Property Name="LastMonth" Type="int" />
+    <Property Name="LastMonthSpel" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="FeeConcession">
+    <Key>
+      <PropertyRef Name="ConcesId" />
+    </Key>
+    <Property Name="ConcesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cast" Type="varchar" MaxLength="20" />
+    <Property Name="Per" Type="float" />
+  </EntityType>
+  <EntityType Name="FeeDetail">
+    <Key>
+      <PropertyRef Name="FeeDetailid" />
+    </Key>
+    <Property Name="FeeDetailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Classid" Type="int" />
+    <Property Name="FeeType" Type="varchar" MaxLength="30" />
+    <Property Name="Amount" Type="float" />
+  </EntityType>
+  <EntityType Name="LeaveTaken">
+    <Key>
+      <PropertyRef Name="Taken_Id" />
+    </Key>
+    <Property Name="Taken_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StaffNo" Type="int" />
+    <Property Name="LType_Id" Type="int" />
+    <Property Name="F_Date" Type="date" />
+    <Property Name="T_Date" Type="date" />
+  </EntityType>
+  <EntityType Name="LeaveType">
+    <Key>
+      <PropertyRef Name="Ltype_Id" />
+    </Key>
+    <Property Name="Ltype_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="L_Name" Type="varchar" MaxLength="30" />
+    <Property Name="No_Leave" Type="int" />
+  </EntityType>
+  <EntityType Name="ReciptDetail">
+    <Key>
+      <PropertyRef Name="Reciept_id" />
+    </Key>
+    <Property Name="Reciept_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecieptFor" Type="varchar" MaxLength="50" />
+    <Property Name="RecieptFrom" Type="varchar" MaxLength="50" />
+    <Property Name="Amt" Type="int" />
+    <Property Name="Rec_Date" Type="date" />
+    <Property Name="P_Mode" Type="varchar" MaxLength="30" />
+    <Property Name="Reference" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SalaryDetail">
+    <Key>
+      <PropertyRef Name="Sal_Id" />
+    </Key>
+    <Property Name="Sal_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Staff_Id" Type="int" />
+    <Property Name="BS" Type="float" />
+    <Property Name="NetSalary" Type="float" />
+    <Property Name="DateFrom" Type="date" />
+    <Property Name="DateTo" Type="date" />
+    <Property Name="EntryDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Staffid" />
+    </Key>
+    <Property Name="Staffid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StaffTypeid" Type="int" />
+    <Property Name="FNname" Type="varchar" MaxLength="30" />
+    <Property Name="Mname" Type="varchar" MaxLength="30" />
+    <Property Name="Lname" Type="varchar" MaxLength="30" />
+    <Property Name="Cno1" Type="varchar" MaxLength="11" />
+    <Property Name="Cno2" Type="varchar" MaxLength="11" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Cityid" Type="int" />
+    <Property Name="Dob" Type="date" />
+    <Property Name="Doj" Type="date" />
+    <Property Name="Gender" Type="varchar" MaxLength="8" />
+    <Property Name="Cast" Type="varchar" MaxLength="15" />
+    <Property Name="Nationality" Type="varchar" MaxLength="7" />
+    <Property Name="Religion" Type="varchar" MaxLength="8" />
+    <Property Name="Spouse" Type="varchar" MaxLength="50" />
+    <Property Name="AdhaarNo" Type="varchar" MaxLength="12" />
+    <Property Name="BankName" Type="varchar" MaxLength="20" />
+    <Property Name="IFSCcode" Type="varchar" MaxLength="11" />
+    <Property Name="BankAccountno" Type="varchar" MaxLength="14" />
+    <Property Name="Photo" Type="varbinary(max)" />
+    <Property Name="Salary" Type="float" />
+    <Property Name="Rfid" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="yearsOfExperience" Type="varchar" MaxLength="30" />
+    <Property Name="Qualification" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="State_Id" />
+    </Key>
+    <Property Name="State_Id" Type="int" Nullable="false" />
+    <Property Name="Country_Id" Type="int" />
+    <Property Name="State_Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Stud_Id" />
+    </Key>
+    <Property Name="Stud_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="General_Regis_No" Type="varchar" MaxLength="10" />
+    <Property Name="Date_Of_Addmission" Type="date" />
+    <Property Name="Student_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Father_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Mother_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Father_Occupation" Type="varchar" MaxLength="30" />
+    <Property Name="Mother_Occupation" Type="varchar" MaxLength="30" />
+    <Property Name="Guardian_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Cast" Type="varchar" MaxLength="20" />
+    <Property Name="Gender" Type="varchar" MaxLength="7" />
+    <Property Name="Date_Of_Birth" Type="date" />
+    <Property Name="Religion" Type="varchar" MaxLength="15" />
+    <Property Name="Nationality" Type="varchar" MaxLength="20" />
+    <Property Name="Classid" Type="int" />
+    <Property Name="Divid" Type="int" />
+    <Property Name="Previous_School_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Phone_No" Type="varchar" MaxLength="10" />
+    <Property Name="HomePhoneNo" Type="varchar" MaxLength="10" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="City_Id" Type="int" />
+    <Property Name="State_Id" Type="int" />
+    <Property Name="Country_Id" Type="int" />
+    <Property Name="Photo" Type="varbinary(max)" />
+    <Property Name="AadhaarNo" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="TransactionAllowance">
+    <Key>
+      <PropertyRef Name="All_TransId" />
+    </Key>
+    <Property Name="All_TransId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="All_Id" Type="int" />
+    <Property Name="Staff_Id" Type="int" />
+    <Property Name="F_Date" Type="date" />
+    <Property Name="T_Date" Type="date" />
+    <Property Name="Entry_Date" Type="date" />
+    <Property Name="Amt" Type="float" />
+  </EntityType>
+  <EntityContainer Name="OMSModelStoreContainer">
+    <EntitySet Name="AccountantLogin" EntityType="Self.AccountantLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllowanceType" EntityType="Self.AllowanceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bonofied" EntityType="Self.Bonofied" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Charges" EntityType="Self.Charges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassDetail" EntityType="Self.ClassDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expense" EntityType="Self.Expense" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExpenseType" EntityType="Self.ExpenseType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeeCollection" EntityType="Self.FeeCollection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeeConcession" EntityType="Self.FeeConcession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeeDetail" EntityType="Self.FeeDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveTaken" EntityType="Self.LeaveTaken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveType" EntityType="Self.LeaveType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReciptDetail" EntityType="Self.ReciptDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalaryDetail" EntityType="Self.SalaryDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionAllowance" EntityType="Self.TransactionAllowance" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
